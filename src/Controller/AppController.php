@@ -67,7 +67,7 @@ class AppController extends Controller
         $this->response->cors($this->request)
             ->allowOrigin(['*'])
             ->allowMethods(['*'])
-            ->allowHeaders(['x-xsrf-token', 'Origin', 'Content-Type', 'X-Auth-Token'])
+            ->allowHeaders(['x-xsrf-token', 'Origin', 'Content-Type', 'Accept', 'X-Auth-Token'])
             ->allowCredentials(['true'])
             ->exposeHeaders(['Link'])
             ->maxAge(300)
