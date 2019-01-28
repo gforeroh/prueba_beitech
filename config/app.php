@@ -256,16 +256,16 @@ return [
             //'port' => 'non_standard_port_number',
 
             /* SERVIDOR REMOTO */
-            // 'host' => 'beitech-sas.ccnlcdeiv1f1.us-east-1.rds.amazonaws.com',
-            // 'username' => 'beitech_test',
-            // 'password' => 'K#j~t33@M}',
-            // 'database' => 'test',
+            'host' => 'beitech-sas.ccnlcdeiv1f1.us-east-1.rds.amazonaws.com',
+            'username' => 'beitech_test',
+            'password' => 'K#j~t33@M}',
+            'database' => 'test',
 
             /* SERVIDOR LOCAL */
-            'host' => 'localhost',
-            'username' => 'root',
-            'password' => '',
-            'database' => 'prueba',
+            // 'host' => 'localhost',
+            // 'username' => 'root',
+            // 'password' => '',
+            // 'database' => 'prueba',
             /*
              * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
              */
