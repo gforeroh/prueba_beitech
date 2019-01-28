@@ -52,6 +52,17 @@ class AppController extends Controller
         //$this->loadComponent('Security');
     }
 
+    public function beforeFilter(Event $event) {
+        $this->response = $this->response->cors($this->request)
+            ->allowOrigin(['*.*'])
+            ->allowMethods(['GET', 'POST'])
+            ->allowHeaders(['X-CSRF-Token'])
+            ->allowCredentials()
+            ->exposeHeaders(['*'])
+            ->maxAge(300)
+            ->build();		 
+    }
+
     public function pr($array){
         pr(json_decode(json_encode($array), true));
     }
