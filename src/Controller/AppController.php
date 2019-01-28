@@ -52,15 +52,26 @@ class AppController extends Controller
         //$this->loadComponent('Security');
     }
 
-    public function beforeFilter(Event $event) {
-        $this->response = $this->response->cors($this->request)
+    public function beforeRender(event $event) {
+        $this->setCorsHeaders();
+    }
+    
+    public function beforeFilter(event $event) {
+        if ($this->request->is('options')) {
+            $this->setCorsHeaders();
+            return $this->response;
+        }
+    }
+    
+    private function setCorsHeaders() {
+        $this->response->cors($this->request)
             ->allowOrigin(['*'])
-            ->allowMethods(['GET', 'POST'])
-            ->allowHeaders(['X-CSRF-Token'])
-            ->allowCredentials()
+            ->allowMethods(['*'])
+            ->allowHeaders(['x-xsrf-token', 'Origin', 'Content-Type', 'X-Auth-Token'])
+            ->allowCredentials(['true'])
             ->exposeHeaders(['Link'])
             ->maxAge(300)
-            ->build();		 
+            ->build();
     }
 
     public function pr($array){
