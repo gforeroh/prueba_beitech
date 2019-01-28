@@ -1,0 +1,58 @@
+{
+	"customer_id": 1,
+	"creation_date": "2019-01-01",
+    "delivery_address": "Cra 14 #93B-15",
+    "total": 350000,
+    "OrderDetails": [
+        {
+            "product_description": "descripcion del producto j",
+            "price": 50000,
+            "quantity": 1,
+            "product_id": 1
+        },
+        {
+            "product_description": "descripcion del producto z",
+            "price": 56000,
+            "quantity": 1,
+            "product_id": 1
+        }
+    ]
+}
+
+
+{
+	"customer_id": 25,
+    "delivery_address": "Cra 56 #169A-35 Ofic. 501 San Cipriano",
+    "OrderDetails": [
+        {
+            "product_description": "descripcion del producto j",
+            "price": 350,
+            "quantity": 3,
+            "product_id": 2
+        },
+        {
+            "product_description": "descripcion del producto z",
+            "price": 500,
+            "quantity": 2,
+            "product_id": 2
+        },
+        {
+            "product_description": "descripcion del producto z",
+            "price": 500,
+            "quantity": 2,
+            "product_id": 13
+        },
+        {
+            "product_description": "descripcion del producto z",
+            "price": 500,
+            "quantity": 2,
+            "product_id": 13
+        },
+        {
+            "product_description": "descripcion del producto z",
+            "price": 500,
+            "quantity": 2,
+            "product_id": 13
+        }
+    ]
+}

@@ -13,6 +13,7 @@ use Cake\ORM\Entity;
  * @property float $total
  *
  * @property \App\Model\Entity\Customer $customer
+ * @property \App\Model\Entity\OrderDetail[] $order_detail
  */
 class Order extends Entity
 {
@@ -31,6 +32,7 @@ class Order extends Entity
         'creation_date' => true,
         'delivery_address' => true,
         'total' => true,
-        'customer' => true
+        'customer' => true,
+        'order_detail' => true
     ];
 }

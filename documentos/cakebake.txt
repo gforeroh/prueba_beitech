@@ -1,0 +1,6 @@
+bin/cake bake model order_detail
+bin/cake bake controller order_detail
+bin/cake bake controller order_detail
+
+
+bin/cake bake model orders

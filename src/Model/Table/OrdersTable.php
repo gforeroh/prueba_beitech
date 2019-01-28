@@ -7,9 +7,9 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Order Model
+ * Orders Model
  *
- * @property \App\Model\Table\CustomerTable|\Cake\ORM\Association\BelongsTo $Customer
+ * @property |\Cake\ORM\Association\BelongsTo $Customers
  *
  * @method \App\Model\Entity\Order get($primaryKey, $options = [])
  * @method \App\Model\Entity\Order newEntity($data = null, array $options = [])
@@ -20,7 +20,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Order[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Order findOrCreate($search, callable $callback = null, $options = [])
  */
-class OrderTable extends Table
+class OrdersTable extends Table
 {
 
     /**
@@ -33,12 +33,17 @@ class OrderTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('order');
+        $this->setTable('`order`');
         $this->setDisplayField('order_id');
         $this->setPrimaryKey('order_id');
 
         $this->belongsTo('Customer', [
             'foreignKey' => 'customer_id',
+            'joinType' => 'INNER'
+        ]);
+
+        $this->hasMany('OrderDetail', [
+            'foreignKey' => 'order_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -81,10 +86,10 @@ class OrderTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->existsIn(['customer_id'], 'Customer'));
+    // public function buildRules(RulesChecker $rules)
+    // {
+    //     $rules->add($rules->existsIn(['customer_id'], 'Customers'));
 
-        return $rules;
-    }
+    //     return $rules;
+    // }
 }

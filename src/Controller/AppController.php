@@ -52,4 +52,8 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
     }
+
+    public function pr($array){
+        pr(json_decode(json_encode($array), true));
+    }
 }

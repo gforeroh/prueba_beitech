@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\OrderDetailTable;
+use App\Model\Table\OrdersTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\OrderDetailTable Test Case
+ * App\Model\Table\OrdersTable Test Case
  */
-class OrderDetailTableTest extends TestCase
+class OrdersTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\OrderDetailTable
+     * @var \App\Model\Table\OrdersTable
      */
-    public $OrderDetail;
+    public $Orders;
 
     /**
      * Fixtures
@@ -24,8 +24,9 @@ class OrderDetailTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.OrderDetail',
-        'app.Orders'
+        'app.Orders',
+        'app.Customer',
+        'app.OrderDetail'
     ];
 
     /**
@@ -36,8 +37,8 @@ class OrderDetailTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::getTableLocator()->exists('OrderDetail') ? [] : ['className' => OrderDetailTable::class];
-        $this->OrderDetail = TableRegistry::getTableLocator()->get('OrderDetail', $config);
+        $config = TableRegistry::getTableLocator()->exists('Orders') ? [] : ['className' => OrdersTable::class];
+        $this->Orders = TableRegistry::getTableLocator()->get('Orders', $config);
     }
 
     /**
@@ -47,7 +48,7 @@ class OrderDetailTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->OrderDetail);
+        unset($this->Orders);
 
         parent::tearDown();
     }

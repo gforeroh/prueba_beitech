@@ -9,7 +9,8 @@ use Cake\Validation\Validator;
 /**
  * OrderDetail Model
  *
- * @property \App\Model\Table\OrderTable|\Cake\ORM\Association\BelongsTo $Order
+ * @property |\Cake\ORM\Association\BelongsTo $Order
+ * @property |\Cake\ORM\Association\BelongsTo $Product
  *
  * @method \App\Model\Entity\OrderDetail get($primaryKey, $options = [])
  * @method \App\Model\Entity\OrderDetail newEntity($data = null, array $options = [])
@@ -39,6 +40,10 @@ class OrderDetailTable extends Table
 
         $this->belongsTo('Order', [
             'foreignKey' => 'order_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Product', [
+            'foreignKey' => 'product_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -81,10 +86,11 @@ class OrderDetailTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->existsIn(['order_id'], 'Order'));
+    // public function buildRules(RulesChecker $rules)
+    // {
+    //     $rules->add($rules->existsIn(['order_id'], 'Order'));
+    //     $rules->add($rules->existsIn(['product_id'], 'Product'));
 
-        return $rules;
-    }
+    //     return $rules;
+    // }
 }

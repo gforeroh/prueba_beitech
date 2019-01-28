@@ -29,12 +29,15 @@ class OrderDetailFixture extends TestFixture
         'price' => ['type' => 'float', 'length' => 10, 'precision' => 2, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
         'order_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'quantity' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => '1', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'product_id' => ['type' => 'integer', 'length' => 10, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
             'order_details_order_id_foreign' => ['type' => 'index', 'columns' => ['order_id'], 'length' => []],
+            'order_details_product_id_foreign' => ['type' => 'index', 'columns' => ['product_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['order_detail_id'], 'length' => []],
             'order_details_order_id_foreign' => ['type' => 'foreign', 'columns' => ['order_id'], 'references' => ['order', 'order_id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'order_details_product_id_foreign' => ['type' => 'foreign', 'columns' => ['product_id'], 'references' => ['product', 'product_id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -56,7 +59,8 @@ class OrderDetailFixture extends TestFixture
                 'product_description' => 'Lorem ipsum dolor sit amet',
                 'price' => 1,
                 'order_id' => 1,
-                'quantity' => 1
+                'quantity' => 1,
+                'product_id' => 1
             ],
         ];
         parent::init();

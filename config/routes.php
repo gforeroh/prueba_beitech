@@ -55,7 +55,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * Apply a middleware to the current route scope.
      * Requires middleware to be registered via `Application::routes()` with `registerMiddleware()`
      */
-    $routes->applyMiddleware('csrf');
+    // $routes->applyMiddleware('csrf');
 
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
@@ -88,6 +88,9 @@ Router::scope('/', function (RouteBuilder $routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
+    $routes->setExtensions(['json']);
+    $routes->resources('Orders');
+    
     $routes->fallbacks(DashedRoute::class);
 });
 
@@ -102,3 +105,8 @@ Router::scope('/', function (RouteBuilder $routes) {
  * });
  * ```
  */
+// Router::scope('/', function ($routes) {
+//     // Prior to 3.5.0 use `extensions()`
+//     $routes->setExtensions(['json']);
+//     $routes->resources('Orders');
+// });

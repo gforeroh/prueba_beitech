@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property float $price
  * @property int $order_id
  * @property int $quantity
+ * @property int $product_id
  *
  * @property \App\Model\Entity\Order $order
  */
@@ -31,6 +32,7 @@ class OrderDetail extends Entity
         'price' => true,
         'order_id' => true,
         'quantity' => true,
+        'product_id' => true,
         'order' => true
     ];
 }
