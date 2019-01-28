@@ -1,6 +1,6 @@
 $(document).ready(function () {
     moment.locale('es');
-    var rootService = 'http://localhost/PRUEBAS/prueba_beitech';
+    var rootService = 'http://localhost/prueba_beitech';
 
     let customerId = null;
     let timeStampStart = null;
@@ -49,9 +49,7 @@ $(document).ready(function () {
     }
 
     getOrder(customerId, timeStampStart, timeStampEnd);
-    // console.log(getOrder(customer_id, timeStampStart, timeStampEnd));
-    // console.log("paso");
-    
+
     $('#btn-consultar').on('click', function(){
         let customerId = $('#customer_id').val();
         let reportrange = $('#reportrange').val();
@@ -145,17 +143,11 @@ function fnFillTable(data){
                 render: function (data, type, row) {
                     let { order_detail } = row;
                     let str = ``;
-                    // console.log(order_detail.length);
-                    // console.log("----");
-                    
-                    
+
                     $.each(order_detail, function (key, value) {
-                        // console.log(key, value.quantity);
-                        str += `${value.quantity} x Product A`;
+                        str += `${value.quantity} x ${value.product.name}`;
                         str += (key < order_detail.length) ? `<br/>\n` : ``;
                     });
-
-                    // data = `2 x Product A<br/>\n1x Product B`;
                     
                     return str;
                 },

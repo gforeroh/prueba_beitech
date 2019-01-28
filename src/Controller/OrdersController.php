@@ -15,9 +15,12 @@ class OrdersController extends AppController
 {
     /*
     * Method: GET
-    * path: ordenes/:customer_id/:timeStampStart/:timeStampStart
-    * $timeStampStart = 1546300800 - 2019-01-02;
-    * $timeStampEnd = 1546387200 - 2019-01-02;
+    * path: orders/orders?customer_id=:customer_id&timeStampStart=:timeStampStart&timeStampEnd=:timeStampEnd
+    * Ejemplo: http://localhost/prueba_beitech/orders/orders?customer_id=1&timeStampStart=1546300800&timeStampEnd=1548806400
+    * $timeStampStart = 1546300800 - 2019-01-01;
+    * $timeStampEnd = 1548806400 - 2019-01-30;
+    * headers: Accept - application/json
+    * headers: Content-Type - application/json
     */
     public function orders(){
         $this->request->allowMethod(['get']);
@@ -35,7 +38,7 @@ class OrdersController extends AppController
             $timeStampStart = ($_GET['timeStampStart'] != 'null') ? $_GET['timeStampStart'] : null;
             $timeStampEnd = ($_GET['timeStampEnd'] != 'null') ? $_GET['timeStampEnd'] : null;
         }
-// pr($_GET); die;
+
         if($customer_id){
             $conditions['Customer.customer_id'] = $customer_id;
             $customer = $this->Customer->find('all')->where(['Customer.customer_id' => $customer_id])->first();
@@ -77,6 +80,14 @@ class OrdersController extends AppController
         ]);
     }
 
+    /*
+    * Method: POST
+    * path: orders/order_add
+    * Ejemplo: http://localhost/prueba_beitech/orders/order_add
+    * data format json
+    * headers: Accept - application/json
+    * headers: Content-Type - application/json
+    */
     public function orderAdd(){
         $this->request->allowMethod(['post']);
         $this->loadModel('OrderDetail');
