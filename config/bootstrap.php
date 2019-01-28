@@ -202,3 +202,6 @@ Type::build('timestamp')
 //Inflector::rules('irregular', ['red' => 'redlings']);
 //Inflector::rules('uninflected', ['dontinflectme']);
 //Inflector::rules('transliteration', ['/å/' => 'aa']);
+
+// Plugin::load('Cors', ['bootstrap' => true, 'routes' => false]);
+$this->addPlugin(Cors::class, ['bootstrap' => true, 'routes' => false]);

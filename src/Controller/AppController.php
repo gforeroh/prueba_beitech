@@ -52,7 +52,7 @@ class AppController extends Controller
         //$this->loadComponent('Security');
     }
 
-    public function beforeRender(event $event) {
+    /* public function beforeRender(event $event) {
         $this->setCorsHeaders();
     }
     
@@ -72,7 +72,7 @@ class AppController extends Controller
             ->exposeHeaders(['Link'])
             ->maxAge(300)
             ->build();
-    }
+    } */
 
     public function pr($array){
         pr(json_decode(json_encode($array), true));
