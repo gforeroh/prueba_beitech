@@ -54,11 +54,11 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event) {
         $this->response = $this->response->cors($this->request)
-            ->allowOrigin(['*.*'])
+            ->allowOrigin(['*'])
             ->allowMethods(['GET', 'POST'])
             ->allowHeaders(['X-CSRF-Token'])
             ->allowCredentials()
-            ->exposeHeaders(['*'])
+            ->exposeHeaders(['Link'])
             ->maxAge(300)
             ->build();		 
     }
