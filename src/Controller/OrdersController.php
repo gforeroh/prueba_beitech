@@ -24,7 +24,7 @@ class OrdersController extends AppController
     * headers: Content-Type - application/json
     */
     public function orders(){
-        $this->request->allowMethod(['get']);
+        // $this->request->allowMethod(['get']);
         $this->loadModel('Customer');
         $conditions=[];
         $functionBetween = [];
