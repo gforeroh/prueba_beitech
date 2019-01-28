@@ -17,6 +17,7 @@ class OrdersController extends AppController
     * Method: GET
     * path: orders/orders?customer_id=:customer_id&timeStampStart=:timeStampStart&timeStampEnd=:timeStampEnd
     * Ejemplo: http://localhost/prueba_beitech/orders/orders?customer_id=1&timeStampStart=1546300800&timeStampEnd=1548806400
+    * https://www.epochconverter.com/    --  Convertir
     * $timeStampStart = 1546300800 - 2019-01-01;
     * $timeStampEnd = 1548806400 - 2019-01-30;
     * headers: Accept - application/json
