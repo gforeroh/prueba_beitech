@@ -52,28 +52,6 @@ class AppController extends Controller
         //$this->loadComponent('Security');
     }
 
-    /* public function beforeRender(event $event) {
-        $this->setCorsHeaders();
-    }
-    
-    public function beforeFilter(event $event) {
-        if ($this->request->is('options')) {
-            $this->setCorsHeaders();
-            return $this->response;
-        }
-    }
-    
-    private function setCorsHeaders() {
-        $this->response->cors($this->request)
-            ->allowOrigin(['*'])
-            ->allowMethods(['*'])
-            ->allowHeaders(['x-xsrf-token', 'Origin', 'Content-Type', 'Accept', 'X-Auth-Token', 'Access-Control-Allow-Origin'])
-            ->allowCredentials(['true'])
-            ->exposeHeaders(['Link'])
-            ->maxAge(300)
-            ->build();
-    } */
-
     public function pr($array){
         pr(json_decode(json_encode($array), true));
     }
